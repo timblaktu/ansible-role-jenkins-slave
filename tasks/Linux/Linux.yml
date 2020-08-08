@@ -20,7 +20,7 @@
       {{ slave_linux_jenkins_password
         | password_hash('sha512', 65534 | random(seed=inventory_hostname)
         | string) }}
-    update_password: always
+    update_password: on_create
     state: present
     append: true
     createhome: true
